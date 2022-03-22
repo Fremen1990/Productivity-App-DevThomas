@@ -1,12 +1,12 @@
 {
   "name": "productivity-app-devthomas",
-  "version": "1.0.0",
+  "version": "1.0.0 BETA as hell!",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "DevThomas / Fremen1990",
   "license": "ISC"
 }

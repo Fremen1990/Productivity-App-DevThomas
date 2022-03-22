@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Productivity App DevThomas</title>
+
+	<style>
+		.App{
+			font-family:sans-serif;
+		}
+		.TimeboxEditor{
+			text-align:right;
+			border:1px solid gray;
+			border-radius:5px;
+			padding:20px;
+			margin-bottom:20px;
+		}
+
+		input{
+			min-width:60%;
+			margin-left:20px;
+			font-size:16px;
+		}
+
+		button{
+			font-size:16px;
+			margin-left:10px;
+		}
+
+		.Timebox{
+			border:1px solid gray;
+            border-radius:5px;
+            padding:20px;
+			text-align:center;
+		}
+		.Clock{
+			color:orangered;
+		}
+		.ProgressBar{
+			border: 1px solid orangered;
+			border-radius:5px;
+			height:25px;
+			margin-bottom:20px;
+			padding:5px;
+		}
+		.ProgressBar>div{
+			height:100%;
+			background-color:orangered;
+		}
+		.inactive{
+			filter:blur(2px) grayscale(100%)
+		}
+
+	</style>
+</head>
+<body>
+
+<h1>Productivity App DevThomas</h1>
+
+<hr>
+
+<div class="App">
+
+	<div class="TimeboxEditor inactive">
+		<label>What is your task?<input value="Creating Productivity App"></label>
+		<br>
+		<label>For how long you plan it?<input value="25"></label>
+		<br>
+		<button>Start</button>
+	</div>
+
+	<div class="Timebox">
+<h1>Creating Productivity App</h1>
+<h2 class="Clock">Left: 12:22</h2>
+		<div class="ProgressBar">
+			<div style="width: 45%"></div>
+		</div>
+		<button class="inactive">Start</button>
+		<button>Stop</button>
+		<button>Pause</button>
+		Number of breaks: 2
+	</div>
+</div>
+
+</body>
+</html>
