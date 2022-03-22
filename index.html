@@ -7,52 +7,63 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Productivity App DevThomas</title>
 
+	<!-- Load React. -->
+	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
 	<style>
-		.App{
-			font-family:sans-serif;
-		}
-		.TimeboxEditor{
-			text-align:right;
-			border:1px solid gray;
-			border-radius:5px;
-			padding:20px;
-			margin-bottom:20px;
-		}
+        .App {
+            font-family: sans-serif;
+        }
 
-		input{
-			min-width:60%;
-			margin-left:20px;
-			font-size:16px;
-		}
+        .TimeboxEditor {
+            text-align: right;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
-		button{
-			font-size:16px;
-			margin-left:10px;
-		}
+        input {
+            min-width: 60%;
+            margin-left: 20px;
+            font-size: 16px;
+        }
 
-		.Timebox{
-			border:1px solid gray;
-            border-radius:5px;
-            padding:20px;
-			text-align:center;
-		}
-		.Clock{
-			color:orangered;
-		}
-		.ProgressBar{
-			border: 1px solid orangered;
-			border-radius:5px;
-			height:25px;
-			margin-bottom:20px;
-			padding:5px;
-		}
-		.ProgressBar>div{
-			height:100%;
-			background-color:orangered;
-		}
-		.inactive{
-			filter:blur(2px) grayscale(100%)
-		}
+        button {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .Timebox {
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .Clock {
+            color: orangered;
+        }
+
+        .ProgressBar {
+            border: 1px solid orangered;
+            border-radius: 5px;
+            height: 25px;
+            margin-bottom: 20px;
+            padding: 5px;
+        }
+
+        .ProgressBar > div {
+            height: 100%;
+            background-color: orangered;
+        }
+
+        .inactive {
+            filter: blur(2px) grayscale(100%)
+        }
 
 	</style>
 </head>
@@ -73,11 +84,13 @@
 	</div>
 
 	<div class="Timebox">
-<h1>Creating Productivity App</h1>
-<h2 class="Clock">Left: 12:22</h2>
-		<div class="ProgressBar">
-			<div style="width: 45%"></div>
-		</div>
+		<h1>Creating Productivity App</h1>
+<!--		<h2 class="Clock">Left: 12:22</h2>-->
+		<div id="root"></div>
+		<div id="root2"></div>
+<!--		<div class="ProgressBar">-->
+<!--			<div style="width: 45%"></div>-->
+<!--		</div>-->
 		<button class="inactive">Start</button>
 		<button>Stop</button>
 		<button>Pause</button>
@@ -86,4 +99,45 @@
 </div>
 
 </body>
+
+<script type="text/babel">
+	// const rootElement =document.getElementById("root")
+
+
+	const domElement = document.createElement("h2");
+	domElement.className = "Clock";
+	domElement.textContent = "Left 10:20";
+
+	// rootElement.append(domElement)
+
+	// const element = React.createElement(
+	// 	"h2",{className:"Clock"},
+	// 	"Lefttt: 22:22"
+	// )
+
+	// console.log([domElement, element])
+
+	// const element = (<h2 className="Clock">Lefty: 22:11</h2>)
+
+	function Clock({minutes=11, seconds=12}){
+		// const {minutes} = props
+
+		return <h2 className="Clock"> Left function: {minutes}:22</h2>
+	}
+
+	// const element = (<Clock minutes="23"/>)
+
+	function ProgressBar ({percent=45}){
+		return(
+			<div className="ProgressBar">
+				<div style={{width:`${percent}%`}}></div>
+			</div>
+		)
+	}
+
+
+
+ReactDOM.render(<div><Clock/><ProgressBar/></div>,  document.getElementById("root"))
+</script>
+
 </html>
