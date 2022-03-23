@@ -77,16 +77,41 @@
 
 <script type="text/babel">
 
-	function TimeboxEditor() {
-		return (
-			<div className="TimeboxEditor inactive">
-				<label>What is your task?<input value="Creating Productivity App"/></label>
-				<br/>
-				<label>or how long you plan it?<input value="25"/></label>
-				<br/>
-				<button>Start</button>
-			</div>
-		)
+	class TimeboxEditor extends React.Component {
+		state = {
+			title: "Kupa",
+			totalTimeInMinutes: 25
+		}
+
+		handleTitleChange = (event) => {
+			this.setState({title: event.target.value})
+		}
+
+		handleTotalTimeInMinutesChange = (event) => {
+			this.setState({totalTimeInMinutes: event.target.value});
+		}
+
+		render() {
+			const {title, totalTimeInMinutes} = this.state;
+			return (
+				<div className="TimeboxEditor">
+					<label>What is your task?
+						<input
+							disabled={false}
+							value={title}
+						onChange={this.handleTitleChange}/></label>
+					<br/>
+					<label>or how long you plan it?
+						<input
+							disabled={false}
+							value={totalTimeInMinutes}
+							onChange={this.handleTotalTimeInMinutesChange}
+						/></label>
+					<br/>
+					<button disabled={false}>Start</button>
+				</div>
+			)
+		}
 	}
 
 	function Clock({className = "", minutes = 20, seconds = 48}) {
@@ -193,7 +218,6 @@
 		}
 	}
 
-	// TODO Lekcja 14. Przekazywanie danych do komponentów
 
 	function App() {
 		return (
